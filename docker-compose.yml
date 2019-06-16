@@ -1,21 +1,26 @@
 version: "3"
 services:
+  networks:
+    mysql-network:
   mysqldb:
     image: mysql:8
     networks:
       - mysql-network
+    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=employeedb
     
   employee-jdbc:
+    depends_on:
+      - mysqldb
     image: itzmekk/employee-jdbc
     ports:
       - "8092:8080"
     networks:
       - mysql-network
-    depends_on:
-      - mysqldb
 
-networks:
-  mysql-network:
+
+    
+
+
