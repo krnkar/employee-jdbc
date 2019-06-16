@@ -9,7 +9,7 @@ services:
     
   employee-jdbc:
     depends_on:
-      - mysqldb-employee-jdbc:
+      - mysqldb-employee-jdbc
     image: itzmekk/employee-jdbc
     ports:
       - "8092:8080"
