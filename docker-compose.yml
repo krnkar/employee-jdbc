@@ -1,6 +1,6 @@
 version: "3"
 services:
-  mysqldb-employee-jdbc::
+  mysqldb-employee-jdbc:
     image: mysql:8
     restart: always
     environment:
