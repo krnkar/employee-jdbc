@@ -1,21 +1,21 @@
 version: "3"
 services:
   employee-jdbc:
-    image: employee-jdbc
+    image: itzmekk/employee-jdbc
     ports:
-      - "8080:8080"
+      - "8095:8080"
     networks:
-      - employee-mysql
+      - employee-mysql-network
     depends_on:
-      - mysqldb
+      - mysqldb-employee-jdbc
  
-  mysqldb:
+  mysqldb-employee-jdbc:
     image: mysql:8
     networks:
-      - employee-mysql
+      - employee-mysql-network
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=bootdb  
+      - MYSQL_DATABASE=employeedb  
 
 networks:
-  employee-mysql:
+  employee-mysql-network:
